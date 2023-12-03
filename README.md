@@ -1,2 +1,2 @@
-# django-e-commerce
-An e-commerce app to learn Django and Python 
+# django-crud
+A CRUD app to learn Django and Python 
