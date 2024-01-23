@@ -1,5 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
+from .models import Game
 
 def index(req):
-  return HttpResponse("The shopping game:D")
+  games = Game.objects.all()
+
+  return render(req, "index.html", {"games": games})

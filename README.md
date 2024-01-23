@@ -181,3 +181,30 @@ If we see the register in the registers list, we can see something like **[Model
 
 To fix this we will go to the model and add a function:
 
+```def __str__(self): return self.[field_name]```
+
+Now the field that will be show will be the field that we write in the self.[field_name]
+
+### Templates
+
+To render an HTML file, we need to create the templates, and for it we first will create a folder with the name we want (for the best practice named it 'templates') on the same app and project folders level.
+
+And we will create all the html files to render (in my case i will create an index.html file).
+
+Now we need to register that template folder in the project. To do that, we will go to the **settings.py** file inside of the project folder, and we will add that folder name (that i call template), on the next property:
+
+```TEMPLATES = [ { ... 'DIRS': ['templates'] } ]```
+
+Inside of the DIRS.
+
+To render a html file in a route, we will go to the **views.py** inside of the app folder, and we will do the next modification:
+
+Before: ```return HttpResponse('Hello:D')```
+
+After: ```return render(req, 'index.html', { 'numbers': [1,2,3] })```
+
+We will call the render function (that is imported on the top of the code: ```from django.shortcuts import render```). Now it need 2 require params and one optional param:
+
+1. The request (that came from the function)
+2. The name of the file that we want to render (in my case index.html)
+3. An optional data that we want to render inside of the html (in my case a dictionary with the property 'numbers' that have a list of numbers)
