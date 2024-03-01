@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from .models import Game
 
-def index(req):
+def index(request):
   games = Game.objects.all()
 
-  return render(req, "index.html", {"games": games})
+  return render(request, "index.html", {"games": games})

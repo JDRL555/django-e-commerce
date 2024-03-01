@@ -208,3 +208,10 @@ We will call the render function (that is imported on the top of the code: ```fr
 1. The request (that came from the function)
 2. The name of the file that we want to render (in my case index.html)
 3. An optional data that we want to render inside of the html (in my case a dictionary with the property 'numbers' that have a list of numbers)
+
+### Connection to another db
+
+We can connect to another database setting the **settings.py** file inside of the project folder:
+
+
+

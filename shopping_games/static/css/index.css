@@ -1,0 +1,33 @@
+body{
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+
+img {
+  width: 60%;
+}
+
+header {
+  margin: 0;
+  padding: 30px;
+  text-align: center;
+}
+
+header h1 { margin: 0; }
+
+section {
+  width: 30%;
+  border: 1px solid orange;  
+  text-align: center;
+  padding: 10px;
+  transition: .3s;
+}
+
+section:hover {
+  transform: translateY(-10px);
+  background-color: white;
+  color: black;
+  border:2px solid orange;
+
+}

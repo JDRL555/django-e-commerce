@@ -1,21 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>List of games</title>
+  <link rel="stylesheet" href="{% static '/css/index.css' %}">
 </head>
 <body>
-  <h1>All the games!</h1>
+  <header>
+    <h1>All the games!</h1>
+  </header>
   {% for game in games %}
-    <img src="{{ game.img.url }}">
-    <h2>{{ game.title }}</h2>
-    <p>{{ game.description }}</p>
-    {% if game.available %} 
-      <p>Available</p> 
-    {% else %} 
-      <p>Not available</p> 
-    {% endif %}
+    <section>
+      <img src="{% static '/imgs/cs2.jpg' %}">
+      <h2>{{ game.title }}</h2>
+      <p>{{ game.description }}</p>
+      {% if game.available %} 
+        <p>Available</p>
+        <p>Price: <b>{{ game.price }}$</b></p>
+      {% else %} 
+        <p>Not available</p> 
+      {% endif %}
+    </section>
   {% endfor %}
 </body>
 </html>
