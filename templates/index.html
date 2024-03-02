@@ -11,7 +11,8 @@
   <header>
     <h1>All the games!</h1>
   </header>
-  {% for game in games %}
+  {% load util %}
+  {% if games|get_type == 'list' %}
     <section>
       <img src="{% static '/imgs/cs2.jpg' %}">
       <h2>{{ game.title }}</h2>
@@ -23,6 +24,33 @@
         <p>Not available</p> 
       {% endif %}
     </section>
-  {% endfor %}
+  {% else %}
+    <section 
+      style="
+        grid-template-columns: 
+        {% if games|length > 4 %}
+          repeat(4, 1fr);
+        {% else %}
+          repeat({{ games|length }}, 1fr);
+        {% endif %}
+      "
+        class="games_container"
+      >
+      {% for game in games %}
+      <div>
+          <img src="{% static game.img|make_list|slice:'22:'|join:'' %}">
+          <h2>{{ game.title }}</h2>
+          <p>{{ game.description }}</p>
+          <p>Category: {{ game.category }}</p>
+          <p>Price: <b>{{ game.price }}$</b></p>
+          {% if game.available %} 
+            <p class="available">Available</p>
+          {% else %} 
+            <p class="not_available">Not available</p> 
+          {% endif %}
+        </div>
+      {% endfor %}
+    </section>
+  {% endif %}
 </body>
 </html>
